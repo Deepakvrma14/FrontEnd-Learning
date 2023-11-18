@@ -1,6 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const Greeting = () => <h1>Hello World!</h1>;
+function BookList(){
+  return (
+    <section>
+      <Book />
+      <Book />
+      <Book />
+      
+    </section>
+  );
+}
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
 
+const Image = () => <h2>image placeholder</h2>;
+const Title = () => {
+  return <h2>Book Title</h2>;
+};
+const Author = () => <h4>Author</h4>;
+
+
+// const Person = () => <h2>john doe</h2>;
+// const Message = () => {
+//   return <p>this is my message</p>;
+// };
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Greeting />);
+root.render(<BookList />);
