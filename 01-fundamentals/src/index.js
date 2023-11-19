@@ -3,33 +3,80 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-const author = 'Jordan Moore';
-const title = 'Interesting Facts For Curious Minds';
-const img = './images/book-1.jpg';
-
-function BookList() {
-  return (
+const firstBook = {
+  author: 'Jordan Moore',
+  title: 'Interesting Facts For Curious Minds',
+  img: './images/book-1.jpg',
+};
+const secondBook = {
+  author: 'James Clear',
+  title: 'Atomic Habits',
+  img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+};
+function BookList(){
+  return(
     <section className='booklist'>
-      <Book />
-      <Book job ='developer'/>
-      <Book title ='New Book' number = {69}/>
+      <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+      />
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        img={secondBook.img}
+      />
     </section>
   );
 }
-const Book = (props) => {
+const Book = (props) =>{
   console.log(props);
+  // destructing props
+  const {author, img, title} = props;
   return (
     <article className='book'>
-      <img src={img} alt={title} />
+      <img src = {img} alt = {title} />
       <h2>{title}</h2>
       <h4>{author} </h4>
-      <p>{props.job}</p>
-      <p> {props.title} </p>
-      <p> {props.number} </p>
-      {console.log(props)}
     </article>
-  );
-};
+  )
+}
+// const Book = (props) => {
+//   console.log(props);
+//   return (
+//     <article className='book'>
+//       <img src = {props.img} alt = {props.title} />
+//       <h2>{props.title}</h2>
+//       <h4>{props.author} </h4>
+//     </article>
+//   )
+// }
+// function BookList() {
+//   return (
+//     <section className='booklist'>
+//       <Book />
+//       <Book job ='developer'/>
+//       <Book title ='New Book' number = {69}/>
+//     </section>
+//   );
+// }
+// const Book = (props) => {
+//   console.log(props);
+//   return (
+//     <article className='book'>
+//       <img src={img} alt={title} />
+//       <h2>{title}</h2>
+//       <h4>{author} </h4>
+//       <p>{props.job}</p>
+//       <p> {props.title} </p>
+//       <p> {props.number} </p>
+//       {console.log(props)}
+//     </article>
+//   );
+// };
+// const author = 'Jordan Moore';
+// const title = 'Interesting Facts For Curious Minds';
+// const img = './images/book-1.jpg';
 
 // function BookList(){
 //   return (
