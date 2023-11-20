@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
@@ -13,15 +13,22 @@ const secondBook = {
   title: 'Atomic Habits',
   img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
 };
-function BookList(){
-  return(
+function BookList() {
+  return (
     <section className='booklist'>
       <Book
         author={firstBook.author}
         title={firstBook.title}
         img={firstBook.img}
-      />
-      <Book
+      >
+        {/* below is children prop */}
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
+        </p>
+        <button>click me</button>
+      </Book>
+      <Book 
         author={secondBook.author}
         title={secondBook.title}
         img={secondBook.img}
@@ -29,15 +36,16 @@ function BookList(){
     </section>
   );
 }
-const Book = (props) =>{
-  console.log(props);
+const Book = ({author, img, title, children}) =>{
+  console.log({author, img, title, children});
   // destructing props
-  const {author, img, title} = props;
+  
   return (
     <article className='book'>
       <img src = {img} alt = {title} />
       <h2>{title}</h2>
       <h4>{author} </h4>
+      {children}
     </article>
   )
 }
