@@ -3,52 +3,181 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-const firstBook = {
-  author: 'Jordan Moore',
-  title: 'Interesting Facts For Curious Minds',
-  img: './images/book-1.jpg',
+
+
+const books = [
+  {
+    author: 'Jordan Moore',
+    title: 'Interesting Facts For Curious Minds',
+    img: './images/book-1.jpg',
+    id: 1,
+  },
+  {
+    author: 'James Clear',
+    title: 'Atomic Habits',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+    id: 2,
+  },
+];
+
+// using spread operator
+
+const Book = (props) => {
+  const { img, title, author } = props;
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+      
+    </article>
+  );
 };
-const secondBook = {
-  author: 'James Clear',
-  title: 'Atomic Habits',
-  img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
-};
+
 function BookList() {
   return (
     <section className='booklist'>
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      >
-        {/* below is children prop */}
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
-        </p>
-        <button>click me</button>
-      </Book>
-      <Book 
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
+      <EventExample />
+      {books.map((book) => {
+        return <Book {...book} key={book.id} />;
+      })}
     </section>
   );
 }
-const Book = ({author, img, title, children}) =>{
-  console.log({author, img, title, children});
-  // destructing props
-  
-  return (
-    <article className='book'>
-      <img src = {img} alt = {title} />
-      <h2>{title}</h2>
-      <h4>{author} </h4>
-      {children}
-    </article>
-  )
-}
+
+
+
+const EventExample = () =>{
+  const handleFormInput =(e) =>{
+    console.log(e);
+    console.log(`Input Name: ${e.target.name}`);
+    console.log(`Input value: ${e.target.value}`);
+    console.log('ahndeled input')
+  };
+  const handleButtonClick = () =>{
+    alert('ahhhh slowww');
+  };
+  const handleSubmitButton = (e) => {
+    e.preventDefault();
+    console.log('Form Submitted');
+  }
+  return (<section>
+    <form onSubmit={handleSubmitButton}>
+      <h2>
+        Sex Center
+      </h2>
+      <input
+        type='text'
+        name='input'
+        onChange={handleFormInput}
+        style={{ margin: '1rem 0' }}
+
+      />
+      <button type='submit'>Submit</button>
+    </form>
+    <button onClick={handleButtonClick} >Click me daddy</button>
+  </section>);
+};
+
+
+// ----------------------------------
+// doing it prop way
+// function BookList() {
+//   return (
+//     <section className='booklist'>
+//       {books.map((book) => {
+//         console.log(book);
+//         const { img, title, author, id } = book;
+//         return <Book book={book} />
+//       })}
+//     </section>
+//   );
+// }
+
+// const Book = (props) => {
+//   const {img, title, author, id} = props.book;
+//   return (
+//     <article className='book'>
+//       <img src={img} alt={title} />
+      
+//       <h2> ({id}) {title}</h2>
+//       <h4>{author} </h4>
+//     </article>
+//   );
+// };
+
+// ---------------------------------------
+// spread operator
+// const friends = ['john', 'peter', 'anna'];
+// const newFriends = [...friends, 'susan'];
+// console.log(friends);
+// console.log(newFriends);
+// const someObject = {
+//   name: 'john',
+//   job: 'developer',
+// };
+// const newObject = { ...someObject, location: 'florida' };
+// console.log(someObject);
+// console.log(newObject);
+// ---------------------------------------
+// function BookList() {
+//   return (
+//     <section className='booklist'>
+//       {books.map((book) => {
+//         console.log(book);
+//         const { img, title, author, id } = book;
+//         return <Book img={img} title = {title} author = {author} id={id} />
+//       })}
+//     </section>
+//   );
+// }
+
+// const Book = ({ img, title, author, id }) => {
+//   return (
+//     <article className='book'>
+//       <img src={img} alt={title} />
+      
+//       <h2> ({id}) {title}</h2>
+//       <h4>{author} </h4>
+//     </article>
+//   );
+// };
+
+// const firstBook = {
+//   author: 'Jordan Moore',
+//   title: 'Interesting Facts For Curious Minds',
+//   img: './images/book-1.jpg',
+// };
+// const secondBook = {
+//   author: 'James Clear',
+//   title: 'Atomic Habits',
+//   img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+// };
+// function BookList() {
+//   return (
+//     <section className='booklist'>
+//       <Book
+//         author={firstBook.author}
+//         title={firstBook.title}
+//         img={firstBook.img}
+//       >
+//         {/* below is children prop */} 
+//         <p>
+//           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+//           repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
+//         </p>
+//         <button>click me</button>
+//       </Book>
+//       <Book 
+//         author={secondBook.author}
+//         title={secondBook.title}
+//         img={secondBook.img}
+//       />
+//     </section>
+//   );
+// }
+
+
 // const Book = (props) => {
 //   console.log(props);
 //   return (
