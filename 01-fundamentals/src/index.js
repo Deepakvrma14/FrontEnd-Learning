@@ -53,6 +53,8 @@ const EventExample = () =>{
     console.log(`Input Name: ${e.target.name}`);
     console.log(`Input value: ${e.target.value}`);
     console.log('ahndeled input')
+
+    
   };
   const handleButtonClick = () =>{
     alert('ahhhh slowww');
