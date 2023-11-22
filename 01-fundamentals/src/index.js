@@ -20,66 +20,165 @@ const books = [
   },
 ];
 
-// using spread operator
-
-const Book = (props) => {
-  const { img, title, author } = props;
-  return (
-    <article className='book'>
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author} </h4>
-      
-    </article>
-  );
-};
+// Import and Export Statemnts
 
 function BookList() {
+  const someValue = 'shakeAndBake';
+  const displayValue = () => {
+    console.log(someValue);
+  };
+  function getBook(id) {
+    const book = books.find((book)=> book.id ===id);
+    console.log(book);
+  }
   return (
     <section className='booklist'>
-      <EventExample />
       {books.map((book) => {
-        return <Book {...book} key={book.id} />;
+        return <Book {...book} key={book.id} getBook = {getBook} />;
       })}
     </section>
   );
 }
 
-
-
-const EventExample = () =>{
-  const handleFormInput =(e) =>{
-    console.log(e);
-    console.log(`Input Name: ${e.target.name}`);
-    console.log(`Input value: ${e.target.value}`);
-    console.log('ahndeled input')
-
-    
-  };
-  const handleButtonClick = () =>{
-    alert('ahhhh slowww');
-  };
-  const handleSubmitButton = (e) => {
-    e.preventDefault();
-    console.log('Form Submitted');
+const Book = (props) => {
+  const { img, title, author, getBook, id } = props;
+  const geBooks = () =>{
+    getBook(id);
   }
-  return (<section>
-    <form onSubmit={handleSubmitButton}>
-      <h2>
-        Sex Center
-      </h2>
-      <input
-        type='text'
-        name='input'
-        onChange={handleFormInput}
-        style={{ margin: '1rem 0' }}
+  return (
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
 
-      />
-      <button type='submit'>Submit</button>
-    </form>
-    <button onClick={handleButtonClick} >Click me daddy</button>
-  </section>);
+      {/* <button onClick={geBooks}>click me</button> */}
+      <button onClick={ () => getBook(id)}>Display Title</button>
+      <h4>{author} </h4>
+    </article>
+  );
 };
+
+// ---------------------------------------------
+
+// prop drilling
+
+
+// function BookList() {
+//   const someValue = 'shakeAndBake';
+//   const displayValue = () => {
+//     console.log(someValue);
+//   };
+//   function getBook(id) {
+//     const book = books.find((book)=> book.id ===id);
+//     console.log(book);
+//   }
+//   return (
+//     <section className='booklist'>
+//       {books.map((book) => {
+//         return <Book {...book} key={book.id} getBook = {getBook} />;
+//       })}
+//     </section>
+//   );
+// }
+
+// const Book = (props) => {
+//   const { img, title, author, getBook, id } = props;
+//   const geBooks = () =>{
+//     getBook(id);
+//   }
+//   return (
+//     <article className='book'>
+//       <img src={img} alt={title} />
+//       <h2>{title}</h2>
+
+//       {/* <button onClick={geBooks}>click me</button> */}
+//       <button onClick={ () => getBook(id)}>Display Title</button>
+//       <h4>{author} </h4>
+//     </article>
+//   );
+// };
+
+
+// -------------------------------
+// using spread operator
+
+// const Book = (props) => {
+//   const { img, title, author } = props;
+//   return (
+//     <article className='book'>
+//       <img src={img} alt={title} />
+//       <h2>{title}</h2>
+//       <h4>{author} </h4>
+      
+//     </article>
+//   );
+// };
+
+// function BookList() {
+//   return (
+//     <section className='booklist'>
+//       <EventExample />
+//       {books.map((book) => {
+//         return <Book {...book} key={book.id} />;
+//       })}
+//     </section>
+//   );
+// }
+// better way using annonymous function
+// const EventExample = () =>{
+//   return (<section>
+//     <form onSubmit={(e) => console.log('form submitted')}>
+//       <h2>
+//         form Center
+//       </h2>
+//       <input
+//         type='text'
+//         name='input'
+//         onChange={(e) => console.log(e.target.value)}
+
+//         style={{ margin: '1rem 0' }}
+
+//       />
+      
+//     </form>
+//     <button type='submit' onClick={(e) => console.log('you clicked')} >Click me </button>
+//   </section>);
+// };
+
+// -----------------------------------------
+// general way 
+// const EventExample = () =>{
+//   const handleFormInput =(e) =>{
+//     console.log(e);
+//     console.log(`Input Name: ${e.target.name}`);
+//     console.log(`Input value: ${e.target.value}`);
+//     console.log('ahndeled input')
+
+
+//   };
+//   const handleButtonClick = () =>{
+//     alert('ahhhh slowww');
+//   };
+//   const handleSubmitButton = (e) => {
+//     e.preventDefault();
+//     console.log('Form Submitted');
+//   }
+//   return (<section>
+//     <form onSubmit={handleSubmitButton}>
+//       <h2>
+//         Sex Center
+//       </h2>
+//       <input
+//         type='text'
+//         name='input'
+//         onChange={handleFormInput}
+//         style={{ margin: '1rem 0' }}
+
+//       />
+//       <button type='submit'>Submit</button>
+//     </form>
+//     <button onClick={handleButtonClick} >Click me daddy</button>
+//   </section>);
+// };
 
 
 // ----------------------------------
