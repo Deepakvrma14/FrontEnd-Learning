@@ -1,12 +1,7 @@
 # React Fundamentals
 
-#### React Course
-
-[My React Course](https://www.udemy.com/course/react-tutorial-and-projects-course/?referralCode=FEE6A921AF07E2563CEF)
-
-#### Support
-
-Find the Content Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
+###### Final Look of this Complete module
+![Alt text](./image/../src/images/image.png)
 
 #### Folder Structure
 
@@ -1713,3 +1708,4 @@ npm run dev
 - to spin up dev server - "npm run dev"
 
 - rest the same - imports/exports, deployment, assets, etc...
+

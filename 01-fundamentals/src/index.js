@@ -10,12 +10,16 @@ import Book from './books'
 
 function BookList() {
   return (
+    <>
+    <h1>Best Sellers</h1>
     <section className='booklist'>
-      {books.map((book) => {
+      {books.map((book, index) => {
 
-        return <Book {...book} key={book.id} />;
+        return <Book {...book} key={book.id} number = {index+1} />;
       })}
     </section>
+    </>
+    
   );
 }
 
