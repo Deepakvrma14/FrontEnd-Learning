@@ -1,7 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CodeExample = () => {
   const [value, setValue] = useState(0);
+
+  const sayHello =() =>{
+    console.log('hello');
+    // setValue(value+1);
+
+  };
+  sayHello();
+  useEffect(()=>{
+    console.log('render component');
+  },[]);
+
+  // normal runs after every render
+  //  [] runs once after initial render
+  // [value] runs after every render if value changes
+  
 
   return (
     <div>
