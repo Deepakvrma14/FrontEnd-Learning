@@ -11,6 +11,12 @@ import FetchData from './tutorial/02-useEffect/starter/04-fetch-data'
 import CleanupFunction from './tutorial/02-useEffect/starter/05-cleanup-function'
 // conditional rendering
 import MultipleReturnsBasics from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics'
+import MultipleReturnsFetchData from './tutorial/03-conditional-rendering/starter/02-multiple-returns-fetch-data'
+import Example from './tutorial/03-conditional-rendering/starter/03-hooks-rule'
+import ShortCircuitEvaluation from './tutorial/03-conditional-rendering/starter/05-short-circuit-examples'
+import ToggleChallenge from './tutorial/03-conditional-rendering/starter/06-toggle-challenge'
+import UserChallenge from './tutorial/03-conditional-rendering/starter/07-user-challenge'
+
 
 
 function App() {
@@ -37,7 +43,12 @@ function App() {
       {/* <hr /> */}
       {/* <FetchData/> */}
       {/* <CleanupFunction/> */}
-
+      {/* <MultipleReturnsBasics/> */}
+      {/* <MultipleReturnsFetchData/> */}
+      {/* <Example /> */}
+      {/* <ShortCircuitEvaluation/> */}
+      {/* <ToggleChallenge/> */}
+      <UserChallenge/>
     </div>
   );
 }
