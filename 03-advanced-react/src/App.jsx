@@ -16,7 +16,9 @@ import Example from './tutorial/03-conditional-rendering/starter/03-hooks-rule'
 import ShortCircuitEvaluation from './tutorial/03-conditional-rendering/starter/05-short-circuit-examples'
 import ToggleChallenge from './tutorial/03-conditional-rendering/starter/06-toggle-challenge'
 import UserChallenge from './tutorial/03-conditional-rendering/starter/07-user-challenge'
-
+// project structuring 
+import {Home, About} from './tutorial/04-project-structure/starter/pages/index'
+import index from './tutorial/04-project-structure/starter/Example/index'
 
 
 function App() {
@@ -48,7 +50,8 @@ function App() {
       {/* <Example /> */}
       {/* <ShortCircuitEvaluation/> */}
       {/* <ToggleChallenge/> */}
-      <UserChallenge/>
+      {/* <UserChallenge/> */}
+      <index/>
     </div>
   );
 }
