@@ -17,15 +17,17 @@ import ShortCircuitEvaluation from './tutorial/03-conditional-rendering/starter/
 import ToggleChallenge from './tutorial/03-conditional-rendering/starter/06-toggle-challenge'
 import UserChallenge from './tutorial/03-conditional-rendering/starter/07-user-challenge'
 // project structuring 
-import {Home, About} from './tutorial/04-project-structure/starter/pages/index'
+// import {Home, About} from './tutorial/04-project-structure/starter/pages/index'
 import index from './tutorial/04-project-structure/starter/Example/index'
-
-
+// leverage javascript
+import List from './tutorial/05-leverage-javascript/starter/list'
+import Person from './tutorial/05-leverage-javascript/starter/person'
 function App() {
   return (
     <div className='container'>
       <h2>Advanced React</h2>
-
+      
+    <div>
       
       {/* <h3>useState</h3>
       <ErrorExample />
@@ -53,7 +55,13 @@ function App() {
       {/* <ShortCircuitEvaluation/> */}
       {/* <ToggleChallenge/> */}
       {/* <UserChallenge/> */}
-      <index/>
+      {/* <index/> */}
+
+      {/* <List/>
+      <Person/> */}
+      </div>
+      
+      
     </div>
   );
 }
