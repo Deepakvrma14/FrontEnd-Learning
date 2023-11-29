@@ -60,7 +60,7 @@ function App() {
       {/* <List/>
       <Person/> */}
       </div>
-      
+
       
     </div>
   );
