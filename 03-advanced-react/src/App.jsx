@@ -22,6 +22,13 @@ import index from './tutorial/04-project-structure/starter/Example/index'
 // leverage javascript
 import List from './tutorial/05-leverage-javascript/starter/list'
 import Person from './tutorial/05-leverage-javascript/starter/person'
+import ControlledInputs from './tutorial/06-forms/starter/01-controlled-inputs'
+import UserChallenge1 from './tutorial/06-forms/starter/02-user-challenge'
+import MultipleInputs from './tutorial/06-forms/starter/03-multiple-inputs'
+// import OtherInputs from './tutorial/06-forms/starter/04-other-inputs'
+import UncontrolledInputs from './tutorial/06-forms/starter/05-form-data'
+
+
 function App() {
   return (
     <div className='container'>
@@ -59,9 +66,14 @@ function App() {
 
       {/* <List/>
       <Person/> */}
-      </div>
+      {/* <ControlledInputs/> */}
+ {/* <UserChallenge1/> */}
+            {/* <OtherInputs/>   */}
+
 
       
+      </div>
+      <UncontrolledInputs/>
     </div>
   );
 }
