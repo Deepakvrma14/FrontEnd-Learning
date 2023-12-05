@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 const url = 'https://api.github.com/users/QuincyLarson';
 
-const FetchData = () => {
+const FetchDataHook = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState(null);
@@ -51,4 +51,4 @@ const FetchData = () => {
     </div>
   );
 };
-export default FetchData;
+export default FetchDataHook;
