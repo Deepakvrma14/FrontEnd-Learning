@@ -38,9 +38,9 @@ function App() {
     <div className='container'>
       <h2>Advanced React</h2>
       
-    <div>
+    
       
-      {/* <h3>useState</h3>
+        <h3>useState</h3>
       <ErrorExample />
       
       <hr/>
@@ -53,33 +53,33 @@ function App() {
       <hr />
       <UseStateGotcha/>
       <hr />
-      <hr /> */}
-      {/* <CodeExample/> */}
-      {/* <hr /> */}
-      {/* <MultipleEffects/> */}
-      {/* <hr /> */}
-      {/* <FetchData/> */}
-      {/* <CleanupFunction/> */}
-      {/* <MultipleReturnsBasics/> */}
-      {/* <MultipleReturnsFetchData/> */}
-      {/* <Example /> */}
-      {/* <ShortCircuitEvaluation/> */}
-      {/* <ToggleChallenge/> */}
-      {/* <UserChallenge/> */}
-      {/* <index/> */}
+      <hr />  
+        <CodeExample/>  
+        <hr />  
+        <MultipleEffects/>  
+        <hr />  
+        <FetchData/>  
+        <CleanupFunction/>  
+        <MultipleReturnsBasics/>  
+        <MultipleReturnsFetchData/>  
+        <Example />  
+        <ShortCircuitEvaluation/>  
+        <ToggleChallenge/>  
+        <UserChallenge/>  
+        {/* <index/>   */}
 
-      {/* <List/>
-      <Person/> */}
-      {/* <ControlledInputs/> */}
- {/* <UserChallenge1/> */}
+       <List/> 
+      <Person/>
+      <ControlledInputs/>
+ <UserChallenge1/>
             {/* <OtherInputs/>   */}
 
-      {/* <UncontrolledInputs/> */}
-      {/* <UseRefBasics/> */}
- {/* <ToggleExample/> */}
+      <UncontrolledInputs/>
+      <UseRefBasics/>
+ <ToggleExample/>
       
-      {/* <Navbar/> */}
-      </div>
+      <Navbar/>
+      
       <ReducerBasics/>
      
     </div>
