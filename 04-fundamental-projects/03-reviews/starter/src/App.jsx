@@ -1,16 +1,15 @@
-import reviews from "./data";
-import { useState } from "react";
-import { FaBeer } from 'react-icons/fa';
-
+import { useState } from 'react';
+import people from './data';
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 const App = () => {
   const [index, setIndex] = useState(0);
-  const {name, job, image, text}  = reviews[index];
+  const { name, job, image, text } = people[index];
   const checkNumber = (number) => {
-    if (number > reviews.length - 1) {
+    if (number > people.length - 1) {
       return 0;
     }
     if (number < 0) {
-      return reviews.length - 1;
+      return people.length - 1;
     }
     return number;
   };
@@ -26,31 +25,43 @@ const App = () => {
       return checkNumber(newIndex);
     });
   };
-  const randomPerson = () =>{
-    let randomNumber = Math.floor(Math.random() * reviews.length);
+  const randomPerson = () => {
+    let randomNumber = Math.floor(Math.random() * people.length);
     if (randomNumber === index) {
       randomNumber = index + 1;
     }
     setIndex(checkNumber(randomNumber));
   };
-  return(
-    <main>
-      <h2>Reviews Starter</h2>
-      <button onClick={nextPerson}>Prev</button>
-      <button onClick={prevPerson}>Next</button>
-      <button onClick={randomPerson}>Random</button>  
-      <img src={image} alt={name} />
-      <h3>
-        {name}
-      </h3>
-      <h4>
-        {job}
-      </h4>
-      <p>
-        {text}
-      </p>
 
+  return (
+    <main>
+      <h2>Our Reviews</h2>
+      <article className='review'>
+        
+        <div className='img-container'>
+          
+          <img src={image} alt={name} className='person-img' />
+          <span className='quote-icon'>
+            <FaQuoteRight />
+          </span>
+        </div>
+        <h4 className='author'>{name}</h4>
+        <p className='job'>{job}</p>
+        <p className='info'>{text}</p>
+        <div className='btn-container'>
+          <button className='prev-btn' onClick={prevPerson}>
+            <FaChevronLeft />
+          </button>
+          <button className='next-btn' onClick={nextPerson}>
+            <FaChevronRight />
+          </button>
+        </div>
+        <button className='btn btn-hipster' onClick={randomPerson}>
+          surprise me
+        </button>
+      </article>
     </main>
   );
 };
+
 export default App;
