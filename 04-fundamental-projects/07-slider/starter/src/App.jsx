@@ -1,8 +1,8 @@
+import React from 'react';
+import { Carousal } from './Carousal';
 const App = () => {
   return (
-    <main>
-      <h2>Slider Starter</h2>
-    </main>
+    <Carousal />
   );
 };
 export default App;
