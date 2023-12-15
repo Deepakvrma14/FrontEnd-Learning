@@ -2,6 +2,7 @@ import { useGlobalContext } from './Context';
 import sublinks from './data';
 import { useRef } from 'react';
 const Submenu = () => {
+  
   const { pageId, setPageId } = useGlobalContext();
   const currentPage = sublinks.find((item) => item.pageId === pageId);
 
