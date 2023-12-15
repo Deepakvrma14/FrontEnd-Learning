@@ -12,7 +12,7 @@ const Home = () => {
       <button onClick={openModal} className='btn'>
         show modal
       </button>
-    </main>
+    </main
   );
 };
 export default Home;

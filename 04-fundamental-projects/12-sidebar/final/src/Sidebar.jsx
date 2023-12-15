@@ -11,6 +11,8 @@ const Sidebar = () => {
         <img src={logo} alt='coding addict' className='logo' />
         <button className='close-btn' onClick={closeSidebar}>
           <FaTimes />
+          
+
         </button>
       </div>
       <ul className='links'>
