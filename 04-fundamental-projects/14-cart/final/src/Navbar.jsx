@@ -5,6 +5,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className='nav-center'>
+        
         <h4>useReducer</h4>
         <div className='nav-container'>
           <FaCartPlus className='cart-icon' />

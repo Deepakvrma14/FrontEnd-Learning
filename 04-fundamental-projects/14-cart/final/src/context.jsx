@@ -9,6 +9,7 @@ import {
   LOADING,
   DISPLAY_ITEMS,
 } from './actions';
+
 import { getTotals } from './utils';
 const url = 'https://www.course-api.com/react-useReducer-cart-project';
 

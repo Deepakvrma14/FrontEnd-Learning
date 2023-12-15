@@ -27,4 +27,6 @@ const CartItem = ({ id, img, title, price, amount }) => {
   );
 };
 
+
+
 export default CartItem;
