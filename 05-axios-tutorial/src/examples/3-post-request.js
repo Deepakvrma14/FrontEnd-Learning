@@ -9,11 +9,12 @@ const PostRequest = () => {
     e.preventDefault();
     console.log(name, email);
     // structure of posting unknown but this is the syntax of posting, second argumnet is the data and third one is for headers
+
     try{
       const response = await axios.post(url, {name:name , email:email});
       console.log(response.data)
     } catch(error){
-      console.log(error.response.data);
+      console.log(error.response);
     }
   };
 
