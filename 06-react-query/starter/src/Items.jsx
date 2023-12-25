@@ -1,3 +1,5 @@
+import React from 'react';
+import { UseQuery } from '@tanstack/react-query';
 import SingleItem from './SingleItem';
 const Items = ({ items }) => {
   return (
