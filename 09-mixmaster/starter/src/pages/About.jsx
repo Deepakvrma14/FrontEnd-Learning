@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 
 const About = () => {
+    console.log("about");
   return (
     <div>
-      <h1>About</h1>
+    
       <Link to='/'>Back Home</Link>
+      <h1>About page</h1>
     </div>
   );
 };
