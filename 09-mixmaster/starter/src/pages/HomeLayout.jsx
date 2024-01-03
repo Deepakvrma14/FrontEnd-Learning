@@ -4,10 +4,12 @@ import Navbar from './Navbar';
 
 const HomeLayout = () => {
     return(
-       <div>
-         <Navbar />
+       <>
+        <Navbar />
+        <section className='page' >
          <Outlet />
-       </div>
+        </section>
+       </>
     );
 };
 export default HomeLayout;

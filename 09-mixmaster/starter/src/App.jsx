@@ -1,4 +1,5 @@
 import React from "react";
+import {loader as landingLoader} from "./pages/Landing";
 import {
   HomeLayout,
   About,
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       },
       {
         index: true,
+        loader: landingLoader,
         element: <Landing />,
 
       },
