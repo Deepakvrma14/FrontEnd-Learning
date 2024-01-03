@@ -2,10 +2,10 @@ import React from "react";
 import {
   HomeLayout,
   About,
-  // Landing,
-  // Error,
-  // Newsletter,
-  // Cocktail,
+  Landing,
+  Error,
+  Newsletter,
+  Cocktail,
 } from './pages';
 import {createBrowserRouter , RouterProvider} from "react-router-dom";
 const router = createBrowserRouter([
@@ -17,6 +17,24 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+      {
+        index: true,
+        element: <Landing />,
+
+      },
+      {
+        path: "newsletter",
+        element: <Newsletter />,
+      },
+      {
+        path: "cocktail",
+        element: <Cocktail />,
+      },
+      {
+        path: "*",
+        element: <Error />,
+      },
+      
     ],
   },
   // {

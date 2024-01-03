@@ -6,7 +6,7 @@ const allProductsQuery = (queryParams) => {
   const { search, category, company, sort, price, shipping, page } =
     queryParams;
 
-  return {
+  return { 
     queryKey: [
       'products',
       search ?? '',
