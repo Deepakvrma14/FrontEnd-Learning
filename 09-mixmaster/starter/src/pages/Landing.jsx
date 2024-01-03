@@ -1,32 +1,22 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
-import { useLoaderData } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
+import axios from "axios";  
+import SearchForm from "../components/SearchForm";
+import CocktailList from "../components/CocktailList";
 
-export const loader = async () => {
-    return 'something'
+
+const cocktailSearchUrl ='https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+
+export const loader  = async() =>{
+    const searchTerm = 'margarita';
+    const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
+    return {drink: response.data.drinks, searchTerm};
+}
+const Landing = () =>{
+    const {drink, searchTerm} = useLoaderData();
+    console.log(drink);
+    return(
+        <SearchForm/>,
+        <CocktailList drinks = {drink} />
+    );
 };
-const Landing = () => {
-    const data = useLoaderData();
-    console.log(data);
-    return <h1>Landing</h1>;
-  };
-  export default Landing;
-
-// const Landing = () => {
-    
-//     const fetchSome = async () =>{
-//         try{
-//             const response = await fetch('');
-//             console.log(response.data);
-//         }
-//         catch(error){
-//             console.log(error);
-//         }};
-//     useEffect(()=>{
-//         fetchSome();
-//     },[] );
-
-
-// };
-// export default Landing;
+export default Landing;

@@ -7,6 +7,7 @@ import {
   Error,
   Newsletter,
   Cocktail,
+  SinglePageError,
 } from './pages';
 import {createBrowserRouter , RouterProvider} from "react-router-dom";
 const router = createBrowserRouter([
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: landingLoader,
+        errorElement: <h2>Sorry, something went wrong</h2>,
         element: <Landing />,
 
       },
