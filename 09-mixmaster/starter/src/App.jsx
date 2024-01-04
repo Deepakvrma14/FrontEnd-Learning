@@ -9,6 +9,7 @@ import {
   Cocktail,
   SinglePageError,
 } from './pages';
+import {loader as cocktailLoader} from './pages/Cocktail';
 import {createBrowserRouter , RouterProvider} from "react-router-dom";
 const router = createBrowserRouter([
   {
@@ -18,6 +19,12 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "cocktail/:id",
+        loader: cocktailLoader,
+        errorElement: <SinglePageError />,
+        element: <Cocktail />,
       },
       {
         index: true,
