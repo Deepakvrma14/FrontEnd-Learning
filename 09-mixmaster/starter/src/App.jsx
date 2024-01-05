@@ -9,6 +9,7 @@ import {
   Cocktail,
   SinglePageError,
 } from './pages';
+import {action as newsletterAction} from './pages/Newsletter';
 import {loader as cocktailLoader} from './pages/Cocktail';
 import {createBrowserRouter , RouterProvider} from "react-router-dom";
 const router = createBrowserRouter([
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "newsletter",
+        action: newsletterAction,
         element: <Newsletter />,
       },
       {

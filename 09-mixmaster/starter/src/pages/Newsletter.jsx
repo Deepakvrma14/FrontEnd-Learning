@@ -1,6 +1,21 @@
+import { Form,redirect } from 'react-router-dom';
+import axios from 'axios';
+import {toast } from 'react-toastify';
+
+const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter';
+
+export const action = async ({request}) =>{
+  const formData  = await request.formData();
+  const data  = Object.formEntries(formData);
+  const response = await axios.post(newsletterUrl,data);
+// all the data wiull be visible on url, which we are senign hwere
+  console.log(response);
+  return response;
+}
+
 const Newsletter = () => {
     return (
-      <form className='form'>
+      <Form className='form'>
         <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
           our newsletter
         </h4>
@@ -50,7 +65,7 @@ const Newsletter = () => {
         >
           submit
         </button>
-      </form>
+      </Form>
     );
   };
   
