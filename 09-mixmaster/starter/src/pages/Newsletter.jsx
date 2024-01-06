@@ -1,4 +1,4 @@
-import { Form,redirect } from 'react-router-dom';
+import { Form,redirect,useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import {toast } from 'react-toastify';
 
@@ -6,16 +6,26 @@ const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter';
 
 export const action = async ({request}) =>{
   const formData  = await request.formData();
-  const data  = Object.formEntries(formData);
-  const response = await axios.post(newsletterUrl,data);
-// all the data wiull be visible on url, which we are senign hwere
-  console.log(response);
-  return response;
+  const data  = Object.fromEntries(formData);
+  try{
+    const response = await axios.post(newsletterUrl,data);
+    console.log(response);
+    toast.success(response.data.msg);
+    return redirect('/');
+  }catch(error){
+    console.log(error);
+    toast.error(error?.response?.data?.msg);
+    return error;
+
+  }
 }
 
 const Newsletter = () => {
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'loading';
+
     return (
-      <Form className='form'>
+      <Form className='form' method = 'POST'>
         <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
           our newsletter
         </h4>
@@ -29,7 +39,7 @@ const Newsletter = () => {
             className='form-input'
             name='name'
             id='name'
-            defaultValue='john'
+            
           />
         </div>
         {/* last name */}
@@ -42,7 +52,6 @@ const Newsletter = () => {
             className='form-input'
             name='lastName'
             id='lastName'
-            defaultValue='smith'
           />
         </div>
         {/* name */}
@@ -56,14 +65,16 @@ const Newsletter = () => {
             name='email'
             id='email'
             defaultValue='test@test.com'
+            required
           />
         </div>
         <button
           type='submit'
           className='btn btn-block'
+          disabled = {isLoading}
           style={{ marginTop: '0.5rem' }}
         >
-          submit
+          {isLoading ? 'Loading ...' : 'submit'}
         </button>
       </Form>
     );

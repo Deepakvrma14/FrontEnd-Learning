@@ -12,6 +12,16 @@ import {
 import {action as newsletterAction} from './pages/Newsletter';
 import {loader as cocktailLoader} from './pages/Cocktail';
 import {createBrowserRouter , RouterProvider} from "react-router-dom";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 const router = createBrowserRouter([
   {
     path: "/",
