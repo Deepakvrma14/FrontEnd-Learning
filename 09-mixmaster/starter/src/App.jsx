@@ -33,13 +33,13 @@ const router = createBrowserRouter([
       },
       {
         path: "cocktail/:id",
-        loader: cocktailLoader,
+        loader: cocktailLoader(queryClient),
         errorElement: <SinglePageError />,
         element: <Cocktail />,
       },
       {
         index: true,
-        loader: landingLoader,
+        loader: landingLoader(queryClient),
         errorElement: <h2>Sorry, something went wrong</h2>,
         element: <Landing />,
 
@@ -67,7 +67,12 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
 };
 
 export default App;
